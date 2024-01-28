@@ -1,37 +1,54 @@
-.row{
-    margin-left: 5px;
+.row {
     color: white;
 }
-.posters{
-    display: flex;
-    padding: 10px;
-    overflow-x: scroll;
+
+.posters {
+    overflow-x: auto;
     overflow-y: hidden;
 }
-::-webkit-scrollbar{
-display: none;
+
+::-webkit-scrollbar {
+    display: none;
 }
-.poster{
-    max-height: 220px;
-    margin-right: 10px;
+
+.poster {
+    max-height: 200px;
+    min-width: min-content;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    overflow: hidden;
+    transition: 0.3s ease;
 }
-.smallPoster{
-    max-height: 150px;
-    margin-right: 10px;
+
+.poster:hover {
+    border: 4px solid white;
 }
-.rowTitle{
+
+.thumbnail {
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.smallPoster {
+    max-height: 170px;
+    min-width: min-content;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.rowTitle {
     margin-top: 2rem;
     font-size: large;
 }
 
-.poster:hover{
-    cursor:pointer;
-    /* border: 1px solid white; */
-    transform: scale(1.1);
+.thumbnail:hover {
+    transform: scale(1.2);
 }
-.smallPoster:hover{
-    cursor:pointer;
-    border: 1px solid white;
-    transform: scale(1.1);
 
+.smallPoster:hover {
+    border: 4px solid white;
 }

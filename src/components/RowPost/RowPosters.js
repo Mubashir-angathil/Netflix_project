@@ -1,25 +1,36 @@
-import axios from "../../axios";
+// import axios from "../../axios";
 import React, { useEffect, useState } from "react";
 import "./RowPosters.css";
-import { imageUrl } from "../../constants/constants";
-function RowPosters(props) {
+import { configs } from "../../utils/configs/Configs";
+
+function RowPosters({ api = null, title, isSmall = false }) {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
-    axios.get(props.url).then((res) => {
-        console.log("Orginals", res.data.results);
-        setPosts(res.data.results);
-      });
+    if (api) {
+      api()
+        .then((res) => {
+          setPosts(res.data.results);
+        })
+        .catch((err) => console.log(err));
+    }
   }, []);
+
   return (
-    <div className="row">
-      <h3 className="rowTitle">{props.title}</h3>
-      <div className="posters">
-        {
-          posts.map((result)=>
-            <img className={props.isSmall?'smallPoster':'poster'} src={imageUrl+result.backdrop_path} alt="posters"/>
-          )
-        }
-       
+    <div className="container-fluid">
+      <div className="row">
+        <h3 className="rowTitle">{title}</h3>
+        <div className="posters d-flex gap-1">
+          {posts.map((result) => (
+            <div className={isSmall ? "smallPoster" : "poster"}>
+              <img
+                src={configs.imageUrl + result.backdrop_path}
+                alt="posters"
+                className="thumbnail"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
