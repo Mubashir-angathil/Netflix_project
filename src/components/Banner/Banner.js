@@ -89,13 +89,13 @@ function Banner() {
             <button className="button">Play</button>
             <button className="button">Mylist</button>
           </div>
-          <p className="description">
+          <p className="description mt-2">
             {movie ? movie.overview : "Description"}
           </p>
         </div>
         <div className="fade_bottom"></div>
       </div>
-      <div className="queue">
+      <div className="queue col-12 col-md-7">
         {movieQueue?.map((movie, index) => (
           <div
             key={index}

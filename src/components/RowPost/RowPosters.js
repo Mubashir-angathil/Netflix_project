@@ -21,15 +21,20 @@ function RowPosters({ api = null, title, isSmall = false }) {
       <div className="row">
         <h3 className="rowTitle">{title}</h3>
         <div className="posters d-flex gap-1">
-          {posts.map((result) => (
-            <div className={isSmall ? "smallPoster" : "poster"}>
-              <img
-                src={configs.imageUrl + result.backdrop_path}
-                alt="posters"
-                className="thumbnail"
-              />
-            </div>
-          ))}
+          {posts.map((result) => {
+            return (
+              <div
+                key={result.id}
+                className={isSmall ? "smallPoster" : "poster"}
+              >
+                <img
+                  src={configs.imageUrl + result.backdrop_path}
+                  alt="posters"
+                  className="thumbnail"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

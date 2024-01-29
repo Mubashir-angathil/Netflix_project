@@ -6,42 +6,13 @@
     backdrop-filter: blur(1px);
     padding: 1rem;
     z-index: 1;
-
-}
-
-.toolbar {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
-}
-
-.toolbar ul {
-    list-style: none;
-    display: flex;
-}
-
-.toolbar ul>li {
-    color: white;
-    cursor: pointer;
-    padding-bottom: 2px;
-    padding-inline: 10px;
-    margin-top: 10px;
-    transition: 0.2s all;
-
-}
-
-.toolbar ul>li:hover {
-    transform: scale(1.1);
 }
 
 .netflix_logo {
-    position: fixed;
-    left: 20px;
-    top: -5px;
+    position: relative;
     width: 80px;
-
+    height: 2rem;
+    transform: scale(4);
 }
 
 .avatar {
@@ -49,4 +20,10 @@
     width: 36px;
     border-radius: 50%;
 
+}
+
+@media (max-width: 768px) {
+    .netflix_logo {
+        transform: scale(3.5);
+    }
 }
