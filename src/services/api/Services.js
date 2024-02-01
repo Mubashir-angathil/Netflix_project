@@ -32,4 +32,10 @@ export const Services = {
       },
     });
   },
+  getMovieDetails: async (movieId) => {
+    return await axios.get(`/movie/${movieId}`);
+  },
+  getMovieCredits: async (movieId) => {
+    return await axios.get(`/movie/${movieId}/credits`)
+  }
 };

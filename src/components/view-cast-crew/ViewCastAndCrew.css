@@ -1,0 +1,33 @@
+/* Styles for the movie title header section */
+.movie-title-header {
+    height: 120px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+/* Styles for the content wrapper within the movie title header */
+.movie-title-header .movie-title-header-content-wrapper {
+    position: absolute;
+    display: flex;
+}
+
+/* Styles for images within the movie title header */
+.movie-title-header img {
+    height: 100px;
+    color: rgb(167, 167, 167);
+}
+
+/* Styles for profile item images */
+.profileItem img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Styles for text within profile items */
+.profileItem p {
+    font-size: 0.9rem;
+    color: var(--text-light-white-color);
+}

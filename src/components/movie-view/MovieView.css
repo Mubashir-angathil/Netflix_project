@@ -1,0 +1,176 @@
+/* Styles for the movie backdrop section */
+.movie-backdrop {
+    min-height: 70dvh;
+    /* Set a minimum height for the backdrop */
+    height: auto;
+    /* Allow the height to adjust based on content */
+    width: 100vw;
+    /* Full width of the viewport */
+    background-size: cover;
+    /* Cover the entire container */
+    background-repeat: no-repeat;
+    /* Prevent background image from repeating */
+    background-position: center;
+    /* Center the background image */
+}
+
+/* Gradient overlay at the bottom of the movie backdrop */
+.fade-bottom {
+    position: relative;
+    width: 100vw;
+    height: 10vh;
+    /* Set a fixed height for the gradient overlay */
+    transform: translateY(-40px);
+    /* Shift the gradient upwards */
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.688), var(--main-color));
+}
+
+/* Container for movie content */
+.movie-content-wrapper {
+    color: white;
+    /* Set text color to white */
+    z-index: 1;
+    /* Place the content above the backdrop */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 2rem;
+    flex-wrap: wrap;
+    /* Allow content to wrap to the next line */
+}
+
+/* Styles for the movie poster image */
+.movie-poster img {
+    height: min-content;
+    /* Allow the height to adjust based on content */
+    width: 250px;
+    /* Fixed width for the poster */
+    border-radius: 10px;
+    /* Add rounded corners to the poster */
+}
+
+/* Styles for the main movie content */
+.movie-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    /* Allow the content to grow to fill available space */
+}
+
+/* Styles for the movie title */
+.movie-content h1 {
+    font-weight: 650;
+    /* Set font weight for the title */
+}
+
+/* Styles for the unordered list in the movie content */
+.movie-content ul {
+    list-style: none;
+    /* Remove default list styles */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Styles for list item bullet */
+.movie-content li::before {
+    content: "\2023";
+    /* Unicode character for a bullet point */
+    margin-right: 2px;
+    font-size: 1.2em;
+    margin-left: 1px;
+}
+
+/* Styles for subheadings in the movie content */
+.movie-content h6 {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Styles for the movie tagline */
+.movie-content .tagline {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Styles for specific paragraph */
+.movie-content p:nth-child(6) {
+    text-align: justify;
+    /* Justify text alignment for the sixth paragraph */
+}
+
+/* Styles for the crew wrapper grid */
+.crew-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Styles for crew member name */
+.crew-wrapper .crew-name {
+    font-size: 1rem;
+}
+
+/* Styles for crew member designation */
+.crew-wrapper .crew-designation {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Styles for the profile card container */
+.profile-card {
+    min-width: 150px;
+    width: 150px;
+    height: auto;
+}
+
+/* Styles for the profile card image */
+.profile-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Maintain aspect ratio while covering the container */
+    aspect-ratio: 3/4;
+    /* Aspect ratio for the profile image */
+}
+
+/* Styles for the play button */
+.play {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid white;
+    border-radius: 20px;
+    transition: .1s all;
+    color: white;
+}
+
+/* Hover effect for the play button */
+.play:hover {
+    background-color: rgba(122, 122, 122, 0.427);
+    color: white;
+}
+
+/* Styles for the play button icon */
+.play-icon {
+    position: relative;
+    width: 10px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Styles for the play button icon shape */
+.play-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    border-style: solid;
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent #fff;
+}

@@ -1,44 +1,29 @@
 import React from "react";
-import NavBar from "./components/navBar/NavBar";
-import Banner from "./components/Banner/Banner";
-import RowPosters from "./components/RowPost/RowPosters";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageHome from "./pages/PageHome";
+import PageMovie from "./pages/PageMovie";
 import "./App.css";
+import PageCastAndCrew from "./pages/PageCastAndCrew";
 
-import { Services } from "./services/api/Services";
 function App() {
   return (
-    <div sx={{ border: "1px solid red" }}>
-      <NavBar />
-      <Banner />
-      <RowPosters
-        api={Services.getNetflixOriginals}
-        title="Popular on Netflix"
-      />
-      <RowPosters
-        api={() =>
-          Services.getMovies({
-            with_genres: 28,
-          })
-        }
-        title="Action Movies"
-        isSmall
-      />
-      <RowPosters
-        api={() => Services.getMovies({ with_genres: 878, page: 2 })}
-        title="Science Fiction"
-        isSmall
-      />
-      <RowPosters
-        api={() => Services.getMovies({ with_genres: 27 })}
-        title="Horror"
-        isSmall
-      />
-      <RowPosters
-        api={Services.getMollyWoodMovies}
-        title="Malayalam Movies"
-        isSmall
-      />
-    </div>
+    // BrowserRouter provides the navigation context for the app
+    <BrowserRouter>
+      {/* Routes component defines the routes of the application */}
+      <Routes>
+        {/* Route for the home page */}
+        <Route index element={<PageHome />} />
+
+        {/* Route for individual movies with nested routes for different pages */}
+        <Route path="movie/:movieId">
+          {/* Nested route for the movie details page */}
+          <Route index element={<PageMovie />} />
+
+          {/* Nested route for the cast and crew page */}
+          <Route path="credits" element={<PageCastAndCrew />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

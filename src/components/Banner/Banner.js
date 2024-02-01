@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { configs } from "../../utils/configs/Configs";
-import "./Banner.css";
 import { Services } from "../../services/api/Services";
+import "./Banner.css";
 
 function Banner() {
   const [movie, setMovie] = useState();
@@ -87,7 +87,7 @@ function Banner() {
           </h1>
           <div className="banner_buttons">
             <button className="button">Play</button>
-            <button className="button">Mylist</button>
+            <button className="button">My List</button>
           </div>
           <p className="description mt-2">
             {movie ? movie.overview : "Description"}

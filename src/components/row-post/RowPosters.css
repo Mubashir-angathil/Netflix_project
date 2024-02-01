@@ -1,0 +1,85 @@
+/* Set the text color of all elements with class 'row' to white */
+.row {
+    color: white;
+}
+
+/* Style for a container that holds posters with horizontal scrolling */
+.posters {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Hide the scrollbar in webkit browsers */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style for individual poster elements */
+.poster {
+    max-height: 200px;
+    min-width: min-content;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/* Style changes when hovering over a poster */
+.poster:hover {
+    border: 4px solid white;
+}
+
+/* Style for the thumbnail image within a poster */
+.thumbnail {
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+/* Style for a smaller version of the poster */
+.smallPoster {
+    max-height: 170px;
+    min-width: min-content;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/* Style for the title of a row */
+.rowTitle {
+    margin-top: 2rem;
+    letter-spacing: 0.4px;
+    font-size: large;
+}
+
+/* Style changes when hovering over the thumbnail image */
+.thumbnail:hover {
+    transform: scale(1.2);
+}
+
+/* Style changes when hovering over a small poster */
+.smallPoster:hover {
+    border: 4px solid white;
+}
+
+/* Media query for responsive design on screens with a max-width of 768px */
+@media (max-width: 768px) {
+    .rowTitle {
+        margin-top: 1rem;
+        font-size: medium;
+        color: rgba(255, 255, 255, 0.7);
+        /* Change text color for better visibility */
+    }
+
+    .poster {
+        max-height: 150px;
+        /* Reduce height of posters on smaller screens */
+    }
+
+    .smallPoster {
+        max-height: 120px;
+        /* Reduce height of small posters on smaller screens */
+    }
+}
