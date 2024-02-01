@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "../components/nav-bar/NavBar";
-import Banner from "../components/banner/Banner";
 import RowPosters from "../components/row-post/RowPosters";
 import { Services } from "../services/api/Services";
+import Banner from "../components/banner/Banner";
 
 const PageHome = () => {
   return (
