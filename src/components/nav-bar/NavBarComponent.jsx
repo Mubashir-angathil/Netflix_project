@@ -1,15 +1,13 @@
 import React from "react";
-import "./Navbar.css"
+import "./Navbar.css";
+import brandName from "../../assets/brand-name.png";
+
 const NavBarComponent = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark">
       <div className="container-fluid">
-        {/* Netflix Logo */}
-        <img
-          className="netflix_logo navbar-brand"
-          src="netflix_logo.svg"
-          alt="Netflix logo"
-        />
+        {/* Logo */}
+        <img className="brand_logo navbar-brand" src={brandName} alt="MB" />
 
         {/* Navbar Toggle Button */}
         <button

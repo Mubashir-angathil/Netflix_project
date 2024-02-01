@@ -9,12 +9,11 @@
     z-index: 1;
 }
 
-/* Netflix Logo Styling */
-.netflix_logo {
+/* Logo Styling */
+.brand_logo {
     position: relative;
     width: 80px;
-    height: 2rem;
-    transform: scale(4);
+    height: 2.5rem;
 }
 
 /* Avatar Styling */
