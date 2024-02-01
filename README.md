@@ -1,10 +1,9 @@
 <h1>
-  <a href="https://mvb.vecel.com" target="_blank" rel="noopener noreferrer">
-    Movie Base - Your Ultimate Movie Listing Website
+  <a href="https://movie-base-gamma.vercel.app" target="_blank" rel="noopener noreferrer">
+    Movie Base - Ultimate Movie Listing Website
     <img src="https://github.com/mubashir-angathil/movie-base/blob/development/src/assets/logo-and-brand.png" height="70px" alt="Movie Base Logo"/>
   </a>
 </h1>
-<!-- href="https://movie-base-gamma.vercel.app/" -->
 Welcome to Movie Base, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Base has you covered. This README guide will help you start the project and provide essential information for developers and users.
 
 Table of Contents
