@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { configs } from "../../utils/configs/Configs";
 import "./ViewCastAndCrew.css";
 
-const ViewCastAndCrewComponent = ({ crew }) => {
+const ViewCastAndCrewComponent = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState();

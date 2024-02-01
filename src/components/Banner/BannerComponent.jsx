@@ -4,7 +4,7 @@ import { configs } from "../../utils/configs/Configs";
 import { Services } from "../../services/api/Services";
 import "./Banner.css";
 
-const Banner = () => {
+const BannerComponent = () => {
   const [movie, setMovie] = useState();
   const [movieQueue, setMovieQueue] = useState([]);
 
@@ -116,4 +116,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default BannerComponent;

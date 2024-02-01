@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./RowPosters.css";
 
 // Functional component for displaying row posters
-function RowPosters({ api = null, title, isSmall = false }) {
+const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
   // State to store the fetched posts
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
@@ -49,6 +49,6 @@ function RowPosters({ api = null, title, isSmall = false }) {
       </div>
     </div>
   );
-}
+};
 
-export default RowPosters;
+export default RowPostersComponent;

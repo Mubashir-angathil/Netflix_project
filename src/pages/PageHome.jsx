@@ -1,17 +1,17 @@
 import React from "react";
-import RowPosters from "../components/row-post/RowPosters";
+import RowPosters from "../components/row-post/RowPostersComponent";
 import { Services } from "../services/api/Services";
-import Banner from "../components/banner/Banner";
-import NavBar from "../components/nav-bar/NavBar";
+import BannerComponent from "../components/banner/BannerComponent";
+import NavBarComponent from "../components/nav-bar/NavBarComponent";
 
 const PageHome = () => {
   return (
     <div>
       {/* Navigation Bar Component */}
-      <NavBar />
+      <NavBarComponent />
 
       {/* Banner Component */}
-      <Banner />
+      <BannerComponent />
 
       {/* RowPosters Components for Different Movie Categories */}
       <RowPosters

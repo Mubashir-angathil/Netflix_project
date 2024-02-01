@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBarComponent = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark">
       <div className="container-fluid">
@@ -42,7 +42,7 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarComponent;
 
 // Navbar Items Data
 const navbarItems = [
