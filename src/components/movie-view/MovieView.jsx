@@ -7,6 +7,7 @@ import { useGeneralHook } from "../../utils/hooks/GeneralHook";
 import CastCard from "../card/cast-card/CastCard";
 import LoadingComponent from "../loading/LoadingComponent";
 import { services } from "../../services/api/Services";
+import MediaPlayer from "../media-player/MediaPlayer";
 
 const MovieView = () => {
   // Extracting movieId from route parameters
@@ -20,6 +21,7 @@ const MovieView = () => {
   const [providers, setProviders] = React.useState([]);
   const [mainCrew, setMainCrew] = React.useState([]);
   const [movieRuntime, setMovieRuntime] = React.useState("0hr");
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   // Custom hook for calculating average color, runtime, etc.
   const { averageColor, getAverageColor, calculateRuntime } = useGeneralHook();
@@ -52,20 +54,23 @@ const MovieView = () => {
 
   // Function to format providers in india with specific format
   const formatProviders = (results) => {
-    const providerDetails = [];
-    const providersInIndia = Object.entries(results).find(
-      (result) => result[0] === "IN"
-    );
-    Object.entries(providersInIndia[1]).forEach((prov) => {
-      if (typeof prov[1] === "object") {
-        const isPresent = providerDetails.some(
-          (details) => details.provider_id === prov[1].provider_id
-        );
-        if (!isPresent) providerDetails.push(prov[1]);
-      }
-    });
+    if (results.length > 0) {
+      const providerDetails = [];
+      const providersInIndia = Object.entries(results).find(
+        (result) => result[0] === "IN"
+      );
+      Object.entries(providersInIndia[1]).forEach((prov) => {
+        if (typeof prov[1] === "object") {
+          const isPresent = providerDetails.some(
+            (details) => details.provider_id === prov[1].provider_id
+          );
+          if (!isPresent) providerDetails.push(prov[1]);
+        }
+      });
 
-    return [providersInIndia[1].link].concat(providerDetails);
+      return [providersInIndia[1].link].concat(providerDetails);
+    }
+    return [];
   };
 
   // Initial fetch
@@ -101,11 +106,11 @@ const MovieView = () => {
           }
 
           // Set movie credits, top-billed casts, and main crew
-          if (response[1].status === 200) {
-            setProviders(formatProviders(response[2].data?.results));
+          if (response[2].status === 200) {
+            setProviders(formatProviders(response[2]?.data?.results));
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   }, []);
 
@@ -135,7 +140,6 @@ const MovieView = () => {
             )})`
             : "",
         }}
-        alt="Backdrop"
       >
         {/* Movie content wrapper */}
         <div className="movie-content-wrapper">
@@ -145,6 +149,7 @@ const MovieView = () => {
               className="mx-4 mb-2"
               src={configs.imageUrl.concat(movie?.poster_path)}
               alt="poster"
+              loading="eager"
             />
           </div>
           {/* Movie details content */}
@@ -161,14 +166,24 @@ const MovieView = () => {
                 {movie?.release_date &&
                   new Date(movie.release_date).toLocaleDateString()}
               </li>
-              <li>{movie?.genres.map((genre) => genre.name).join(", ")}</li>
+              <li>{movie?.genres?.map((genre) => genre.name).join(", ")}</li>
               <li>{movieRuntime}</li>
             </ul>
             {/* Play trailer button */}
-            <span className="play mb-2 btn">
+            <span
+              className="play mb-2 btn"
+              onClick={() => setModalOpen(!modalOpen)}
+            >
               <span className="play-icon"></span>
               Play Trailer
             </span>
+            {modalOpen && (
+              <MediaPlayer
+                movieId={movie.id}
+                open={modalOpen}
+                setOpen={setModalOpen}
+              />
+            )}
             {/* Movie tagline */}
             <p className="tagline">{movie?.tagline}</p>
             <h6>Overview</h6>
@@ -194,36 +209,38 @@ const MovieView = () => {
       <div className="fade-bottom" />
 
       {/* Providers */}
-      <div
-        className="col-12 px-4"
-        style={{ transform: "translate(0px,-45px)" }}
-      >
-        <h5 className="text-white">Providers</h5>
-        <div className="d-flex gap-2 overflow-auto">
-          {providers[1].map((provider) => {
-            return (
-              <a
-                title={provider?.provider_name}
-                key={provider?.provider_id}
-                className="provider-card text-white overflow-hidden"
-                href={providers[0]}
-              >
-                <img
-                  className="img-fluid"
-                  src={configs.imageUrl.concat(provider?.logo_path)}
-                  alt="logo"
-                />
-              </a>
-            );
-          })}
+      {providers[1]?.length > 0 && (
+        <div
+          className="col-12 px-4"
+          style={{ transform: "translate(0px,-45px)" }}
+        >
+          <h5 className="text-white">Providers</h5>
+          <div className="d-flex gap-2 overflow-auto">
+            {providers[1]?.map((provider) => {
+              return (
+                <a
+                  title={provider?.provider_name}
+                  key={provider?.provider_id}
+                  className="provider-card text-white overflow-hidden"
+                  href={providers[0]}
+                >
+                  <img
+                    className="img-fluid"
+                    src={configs.imageUrl.concat(provider?.logo_path)}
+                    alt="logo"
+                  />
+                </a>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
       {/* Top billed cast section */}
       <div className="px-4 mb-5 col-12">
         <h5 className="text-white">Top Billed Cast</h5>
         <div className="d-flex overflow-auto">
           {/* Render top billed cast members */}
-          {topBilledCasts.map((credit, index) => {
+          {topBilledCasts?.map((credit, index) => {
             return (
               <span key={credit.id} className="d-flex">
                 {/* Render CastCard component */}

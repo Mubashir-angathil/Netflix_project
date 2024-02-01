@@ -16,7 +16,7 @@
 
 /* Style for individual poster elements */
 .poster {
-    max-height: 200px;
+    max-height: 230px;
     min-width: min-content;
     cursor: pointer;
     border-radius: 10px;
@@ -38,7 +38,7 @@
 
 /* Style for a smaller version of the poster */
 .smallPoster {
-    max-height: 170px;
+    max-height: 200px;
     min-width: min-content;
     cursor: pointer;
     border-radius: 10px;
@@ -70,16 +70,5 @@
         margin-top: 1rem;
         font-size: medium;
         color: rgba(255, 255, 255, 0.7);
-        /* Change text color for better visibility */
-    }
-
-    .poster {
-        max-height: 150px;
-        /* Reduce height of posters on smaller screens */
-    }
-
-    .smallPoster {
-        max-height: 120px;
-        /* Reduce height of small posters on smaller screens */
     }
 }

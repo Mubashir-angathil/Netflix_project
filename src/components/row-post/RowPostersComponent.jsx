@@ -21,32 +21,38 @@ const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
   }, []);
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {/* Display the title of the row */}
-        <h3 className="rowTitle">{title}</h3>
-        {/* Container for posters */}
-        <div className="posters d-flex gap-1">
-          {/* Map through posts and display each poster */}
-          {posts.map((post) => {
-            return (
-              <div
-                key={post.id}
-                className={isSmall ? "smallPoster" : "poster"}
-                onClick={() => navigate("/movie".concat("/", post.id))}
-              >
-                {/* Display poster image */}
-                <img
-                  src={configs.imageUrl + post.poster_path}
-                  alt="posters"
-                  className="thumbnail"
-                />
-              </div>
-            );
-          })}
+    posts?.length > 0 && (
+      <div className="container-fluid">
+        <div className="row">
+          {/* Display the title of the row */}
+          <h3 className="rowTitle">{title}</h3>
+          {/* Container for posters */}
+          <div className="posters d-flex gap-1">
+            {/* Map through posts and display each poster */}
+            {posts.map((post) => {
+              return (
+                <div
+                  key={post.id}
+                  className={isSmall ? "smallPoster" : "poster"}
+                  style={{
+                    display: post.poster_path === null ? "none" : "",
+                  }}
+                  onClick={() => navigate("/movie".concat("/", post.id))}
+                >
+                  {/* Display poster image */}
+                  <img
+                    src={configs.imageUrl + post.poster_path}
+                    alt="posters"
+                    className="thumbnail"
+                    loading="lazy"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 

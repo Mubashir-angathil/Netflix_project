@@ -13,6 +13,7 @@ const CastCard = ({ url, name, character }) => {
             : "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
         }
         alt="profile border"
+        loading="lazy"
       />
       {/* Container for the name and character details */}
       <div className="p-1">

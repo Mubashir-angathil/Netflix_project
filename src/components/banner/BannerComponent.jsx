@@ -116,6 +116,7 @@ const BannerComponent = () => {
               className="upcoming-img"
               src={configs.imageUrl + movie.backdrop_path}
               alt={`img-${index}`}
+              loading="eager"
             />
           </div>
         ))}
