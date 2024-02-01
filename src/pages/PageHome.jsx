@@ -1,7 +1,7 @@
 import React from "react";
 import { Services } from "../services/api/Services";
 import NavBarComponent from "../components/nav-bar/NavBarComponent.jsx";
-import BannerComponent from "../components/banner/BannerComponent.jsx";
+// import BannerComponent from "../components/banner/BannerComponent.jsx";
 import RowPosters from "../components/row-post/RowPostersComponent.jsx";
 
 const PageHome = () => {
@@ -11,7 +11,7 @@ const PageHome = () => {
       <NavBarComponent />
 
       {/* Banner Component */}
-      <BannerComponent />
+      {/* <BannerComponent /> */}
 
       {/* RowPosters Components for Different Movie Categories */}
       <RowPosters
