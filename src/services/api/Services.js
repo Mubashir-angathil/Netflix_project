@@ -9,7 +9,7 @@ export const services = {
     });
   },
   getNetflixOriginals: async () => {
-    return await axios.get("discover/movie/", {
+    return await axios.get("discover/movie", {
       params: {
         sort_by: "popularity.desc",
         with_watch_monetization_types: "flatrate,free,ads",
