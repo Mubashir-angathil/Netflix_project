@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
-import { Services } from "../../services/api/Services";
-import "./Banner.css";
 
 const BannerComponent = () => {
-  const [movie, setMovie] = useState();
-  const [movieQueue, setMovieQueue] = useState([]);
+  const [movie, setMovie] = React.useState();
+  const [movieQueue, setMovieQueue] = React.useState([]);
 
   const shiftMovieQueue = () => {
     setMovieQueue((prevMovies) => {
@@ -20,8 +19,8 @@ const BannerComponent = () => {
     });
   };
 
-  useEffect(() => {
-    Services.getTrendingMovies()
+  React.useEffect(() => {
+    services.getTrendingMovies()
       .then((res) => {
         setMovieQueue(res.data.results);
         shiftMovieQueue();
@@ -29,7 +28,7 @@ const BannerComponent = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const intervalId = setInterval(() => {
       shiftMovieQueue();
     }, 5000);
@@ -37,7 +36,7 @@ const BannerComponent = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const bannerElement = document.querySelector(".banner");
     const queueElement = document.querySelector(".queue");
 

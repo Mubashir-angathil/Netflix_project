@@ -1,8 +1,8 @@
 import React from "react";
-import { Services } from "../services/api/Services";
 import NavBarComponent from "../components/nav-bar/NavBarComponent.jsx";
-// import BannerComponent from "../components/banner/BannerComponent.jsx";
 import RowPosters from "../components/row-post/RowPostersComponent.jsx";
+import BannerComponent from "../components/banner/BannerComponent.jsx";
+import { services } from "../services/api/Services.js";
 
 const PageHome = () => {
   return (
@@ -11,30 +11,30 @@ const PageHome = () => {
       <NavBarComponent />
 
       {/* Banner Component */}
-      {/* <BannerComponent /> */}
+      <BannerComponent />
 
       {/* RowPosters Components for Different Movie Categories */}
       <RowPosters
-        api={Services.getNetflixOriginals}
+        api={services.getNetflixOriginals}
         title="Popular on Netflix"
       />
       <RowPosters
-        api={() => Services.getMovies({ with_genres: 28 })}
+        api={() => services.getMovies({ with_genres: 28 })}
         title="Action Movies"
         isSmall
       />
       <RowPosters
-        api={() => Services.getMovies({ with_genres: 878, page: 2 })}
+        api={() => services.getMovies({ with_genres: 878, page: 2 })}
         title="Science Fiction"
         isSmall
       />
       <RowPosters
-        api={() => Services.getMovies({ with_genres: 27 })}
+        api={() => services.getMovies({ with_genres: 27 })}
         title="Horror"
         isSmall
       />
       <RowPosters
-        api={Services.getMollyWoodMovies}
+        api={services.getMollyWoodMovies}
         title="Malayalam Movies"
         isSmall
       />

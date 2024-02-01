@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
 import "./MovieView.css";
 import { useGeneralHook } from "../../utils/hooks/GeneralHook";
 import CastCard from "../card/cast-card/CastCard";
 import LoadingComponent from "../loading/LoadingComponent";
+import { services } from "../../services/api/Services";
 
 const MovieView = () => {
   // Extracting movieId from route parameters
@@ -55,8 +55,8 @@ const MovieView = () => {
     else {
       // Fetch movie details and credits when component mounts
       Promise.all([
-        Services.getMovieDetails(params.movieId),
-        Services.getMovieCredits(params.movieId),
+        services.getMovieDetails(params.movieId),
+        services.getMovieCredits(params.movieId),
       ])
         .then(async (response) => {
           // Set movie details and calculate average color

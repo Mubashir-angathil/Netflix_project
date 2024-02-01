@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Services } from "../../services/api/Services";
 import { useNavigate, useParams } from "react-router-dom";
 import { configs } from "../../utils/configs/Configs";
 import "./ViewCastAndCrew.css";
+import { services } from "../../services/api/Services";
 
 const ViewCastAndCrewComponent = () => {
   const params = useParams();
@@ -15,8 +15,8 @@ const ViewCastAndCrewComponent = () => {
     if (!params?.movieId) navigate("/", { replace: true });
     else {
       Promise.all([
-        Services.getMovieDetails(params.movieId),
-        Services.getMovieCredits(params.movieId),
+        services.getMovieDetails(params.movieId),
+        services.getMovieCredits(params.movieId),
       ])
         .then(async (response) => {
           if (response[0].status === 200) {

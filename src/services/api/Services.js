@@ -1,5 +1,6 @@
 import axios from "./Api";
-export const Services = {
+
+export const services = {
   getTrendingMovies: async () => {
     return await axios.get("/trending/all/week", {
       params: {
@@ -36,6 +37,6 @@ export const Services = {
     return await axios.get(`/movie/${movieId}`);
   },
   getMovieCredits: async (movieId) => {
-    return await axios.get(`/movie/${movieId}/credits`)
-  }
+    return await axios.get(`/movie/${movieId}/credits`);
+  },
 };
