@@ -1,6 +1,7 @@
 import React from "react";
 import { services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
+import "./Banner.css"
 
 // BannerComponent: Rotating movie banner with dynamic background image
 const BannerComponent = () => {
