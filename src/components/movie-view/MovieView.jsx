@@ -17,6 +17,7 @@ const MovieView = () => {
   const [movie, setMovie] = React.useState();
   const [movieCredits, setMovieCredits] = React.useState([]);
   const [topBilledCasts, setTopBilledCasts] = React.useState([]);
+  const [providers, setProviders] = React.useState([]);
   const [mainCrew, setMainCrew] = React.useState([]);
   const [movieRuntime, setMovieRuntime] = React.useState("0hr");
 
@@ -49,14 +50,34 @@ const MovieView = () => {
     return formattedCrew;
   };
 
+  // Function to format providers in india with specific format
+  const formatProviders = (results) => {
+    const providerDetails = [];
+    const providersInIndia = Object.entries(results).find(
+      (result) => result[0] === "IN"
+    );
+    Object.entries(providersInIndia[1]).forEach((prov) => {
+      if (typeof prov[1] === "object") {
+        const isPresent = providerDetails.some(
+          (details) => details.provider_id === prov[1].provider_id
+        );
+        if (!isPresent) providerDetails.push(prov[1]);
+      }
+    });
+
+    return [providersInIndia[1].link].concat(providerDetails);
+  };
+
+  // Initial fetch
   React.useEffect(() => {
     // Redirect to home page if movieId is not provided
     if (!params?.movieId) navigate("/", { replace: true });
     else {
-      // Fetch movie details and credits when component mounts
+      // Fetch movie details, credits, and providers when component mounts
       Promise.all([
         services.getMovieDetails(params.movieId),
         services.getMovieCredits(params.movieId),
+        services.getProviders(params.movieId),
       ])
         .then(async (response) => {
           // Set movie details and calculate average color
@@ -77,6 +98,11 @@ const MovieView = () => {
             if (response[1].data.crew) {
               setMainCrew(filterMainCrew(response[1].data.crew));
             }
+          }
+
+          // Set movie credits, top-billed casts, and main crew
+          if (response[1].status === 200) {
+            setProviders(formatProviders(response[2].data?.results));
           }
         })
         .catch((err) => console.log(err));
@@ -166,6 +192,32 @@ const MovieView = () => {
       </div>
       {/* Fade bottom section */}
       <div className="fade-bottom" />
+
+      {/* Providers */}
+      <div
+        className="col-12 px-4"
+        style={{ transform: "translate(0px,-45px)" }}
+      >
+        <h5 className="text-white">Providers</h5>
+        <div className="d-flex gap-2 overflow-auto">
+          {providers[1].map((provider) => {
+            return (
+              <a
+                title={provider?.provider_name}
+                key={provider?.provider_id}
+                className="provider-card text-white overflow-hidden"
+                href={providers[0]}
+              >
+                <img
+                  className="img-fluid"
+                  src={configs.imageUrl.concat(provider?.logo_path)}
+                  alt="logo"
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
       {/* Top billed cast section */}
       <div className="px-4 mb-5 col-12">
         <h5 className="text-white">Top Billed Cast</h5>

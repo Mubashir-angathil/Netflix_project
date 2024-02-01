@@ -39,4 +39,7 @@ export const services = {
   getMovieCredits: async (movieId) => {
     return await axios.get(`/movie/${movieId}/credits`);
   },
+  getProviders: async (movieId) => {
+    return await axios.get(`/movie/${movieId}/watch/providers`);
+  },
 };

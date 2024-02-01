@@ -174,3 +174,11 @@
     border-width: 7px 0 7px 10px;
     border-color: transparent transparent transparent #fff;
 }
+
+.provider-card {
+    border-radius: 10px;
+    min-width: 50px;
+}
+.provider-card img{
+    height: 50px;
+}

@@ -19,7 +19,7 @@
     max-height: 200px;
     min-width: min-content;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 10px;
     border: 4px solid transparent;
     overflow: hidden;
     transition: 0.3s ease;
@@ -41,7 +41,7 @@
     max-height: 170px;
     min-width: min-content;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 10px;
     border: 4px solid transparent;
     overflow: hidden;
     transition: 0.3s ease;
