@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { configs } from "../../utils/configs/Configs";
 import { Services } from "../../services/api/Services";
@@ -63,6 +62,7 @@ const BannerComponent = () => {
     return () => {
       bannerElement.removeEventListener("animationend", onAnimationEnd);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movie]);
 
   const handleBannerChange = (movie) => {
