@@ -1,6 +1,5 @@
 import React from "react";
-import "./NavBar.css";
-
+import "./Navbar.css"
 const NavBarComponent = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark">

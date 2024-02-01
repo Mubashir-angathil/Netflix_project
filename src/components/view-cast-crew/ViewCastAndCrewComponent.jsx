@@ -54,14 +54,13 @@ const ViewCastAndCrewComponent = () => {
             {/* Movie title and back button */}
             <div className="d-flex align-items-start text-light flex-column justify-content-center">
               <h2 className="ms-3">{movie?.title}</h2>
-              <a
-                href
+              <span
                 className="btn fw-bold"
                 style={{ color: "rgb(167, 167, 167)" }}
                 onClick={() => navigate(-1)}
               >
                 &laquo; Back to main
-              </a>
+              </span>
             </div>
           </div>
         </div>
@@ -82,7 +81,11 @@ const ViewCastAndCrewComponent = () => {
             <div key={cast.id} className="profileItem d-flex p-2 gap-3">
               {/* Cast profile image */}
               <img
-                src={configs.imageUrl.concat(cast.profile_path)}
+                src={
+                  cast.profile_path
+                    ? configs.imageUrl.concat(cast.profile_path)
+                    : "https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
+                }
                 alt="profile"
               />
               <div>
@@ -103,7 +106,10 @@ const ViewCastAndCrewComponent = () => {
             </span>
           </h3>
           {movieCredits?.crew.map((crew) => (
-            <div key={crew.id} className="profileItem d-flex p-2 gap-3">
+            <div
+              key={crew.id.toString().concat(crew.job)}
+              className="profileItem d-flex p-2 gap-3"
+            >
               {/* Crew profile image */}
               <img
                 src={

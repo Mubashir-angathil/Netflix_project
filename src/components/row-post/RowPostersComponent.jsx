@@ -1,17 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { configs } from "../../utils/configs/Configs";
-import { useNavigate } from "react-router-dom";
 import "./RowPosters.css";
+import { useNavigate } from "react-router-dom";
 
-// Functional component for displaying row posters
 const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
   // State to store the fetched posts
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = React.useState([]);
   const navigate = useNavigate();
 
   // useEffect to fetch data when the component mounts
-  useEffect(() => {
+  React.useEffect(() => {
     if (api) {
       api()
         .then((res) => {
@@ -19,7 +18,7 @@ const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
         })
         .catch((err) => console.log(err));
     }
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, []);
 
   return (
     <div className="container-fluid">

@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageHome from "./pages/PageHome";
 import PageMovie from "./pages/PageMovie";
 import "./App.css";
 import PageCastAndCrew from "./pages/PageCastAndCrew";
+import PageHome from "./pages/PageHome";
 
 function App() {
   return (
