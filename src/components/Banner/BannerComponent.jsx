@@ -1,7 +1,7 @@
 import React from "react";
 import { services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
-import "./Banner.css"
+import "./Banner.css";
 
 // BannerComponent: Rotating movie banner with dynamic background image
 const BannerComponent = () => {
@@ -44,30 +44,31 @@ const BannerComponent = () => {
 
   // Updates the banner and queue appearance on movie change
   React.useEffect(() => {
-    const bannerElement = document.querySelector(".banner");
-    const queueElement = document.querySelector(".queue");
+    if (movie) {
+      const bannerElement = document.querySelector(".banner");
+      const queueElement = document.querySelector(".queue");
+      bannerElement.classList.add("animated-banner-setting");
+      queueElement.firstChild?.classList.add("active");
+      bannerElement.style.backgroundImage = `url(${
+        configs.imageUrl +
+        (movieQueue && movieQueue.length > 0
+          ? movieQueue[movieQueue.length - 1].backdrop_path
+          : "")
+      })`;
 
-    bannerElement.classList.add("animated-banner-setting");
-    queueElement.firstChild?.classList.add("active");
-    bannerElement.style.backgroundImage = `url(${
-      configs.imageUrl +
-      (movieQueue && movieQueue.length > 0
-        ? movieQueue[movieQueue.length - 1].backdrop_path
-        : "")
-    })`;
+      const onAnimationEnd = () => {
+        bannerElement.classList.remove("animated-banner-setting");
 
-    const onAnimationEnd = () => {
-      bannerElement.classList.remove("animated-banner-setting");
+        queueElement.firstChild?.classList.remove("active");
+        bannerElement.removeEventListener("animationend", onAnimationEnd);
+      };
 
-      queueElement.firstChild?.classList.remove("active");
-      bannerElement.removeEventListener("animationend", onAnimationEnd);
-    };
+      bannerElement.addEventListener("animationend", onAnimationEnd);
+      return () => {
+        bannerElement.removeEventListener("animationend", onAnimationEnd);
+      };
+    }
 
-    bannerElement.addEventListener("animationend", onAnimationEnd);
-
-    return () => {
-      bannerElement.removeEventListener("animationend", onAnimationEnd);
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movie]);
 
@@ -85,7 +86,7 @@ const BannerComponent = () => {
     });
   };
 
-  return (
+  return movie ? (
     <div className="banner-container">
       <div className="banner">
         <div className="content">
@@ -120,6 +121,8 @@ const BannerComponent = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <div style={{minHeight: "100vh"}}></div>
   );
 };
 

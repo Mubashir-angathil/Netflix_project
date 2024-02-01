@@ -1,6 +1,6 @@
 import React from "react";
-import BannerComponent from "../components/banner/BannerComponent";
 import NavBarComponent from "../components/nav-bar/NavBarComponent";
+import BannerComponent from "../components/banner/BannerComponent.jsx";
 import RowPostersComponent from "../components/row-post/RowPostersComponent";
 import { services } from "../services/api/Services";
 
