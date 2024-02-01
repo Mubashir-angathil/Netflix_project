@@ -1,8 +1,8 @@
 import React from "react";
-import RowPosters from "../components/row-post/RowPostersComponent";
+import RowPosters from "../components/row-post/RowPostersComponent.jsx";
 import { Services } from "../services/api/Services";
-import BannerComponent from "../components/banner/BannerComponent";
-import NavBarComponent from "../components/nav-bar/NavBarComponent";
+import BannerComponent from "../components/banner/BannerComponent.jsx";
+import NavBarComponent from "../components/nav-bar/NavBarComponent.jsx";
 
 const PageHome = () => {
   return (
