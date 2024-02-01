@@ -1,3 +1,4 @@
+// PageHome.jsx
 import React from "react";
 import NavBarComponent from "../components/nav-bar/NavBarComponent.jsx";
 import RowPosters from "../components/row-post/RowPostersComponent.jsx";

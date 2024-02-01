@@ -2,10 +2,12 @@ import React from "react";
 import { services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
 
+// BannerComponent: Rotating movie banner with dynamic background image
 const BannerComponent = () => {
   const [movie, setMovie] = React.useState();
   const [movieQueue, setMovieQueue] = React.useState([]);
 
+  // Shifts the movie queue to create a rotating effect
   const shiftMovieQueue = () => {
     setMovieQueue((prevMovies) => {
       const updatedMovies = [...prevMovies];
@@ -19,8 +21,10 @@ const BannerComponent = () => {
     });
   };
 
+  // Fetches trending movies and initializes the movie queue
   React.useEffect(() => {
-    services.getTrendingMovies()
+    services
+      .getTrendingMovies()
       .then((res) => {
         setMovieQueue(res.data.results);
         shiftMovieQueue();
@@ -28,6 +32,7 @@ const BannerComponent = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  // Sets up a timer to shift the movie queue at regular intervals
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       shiftMovieQueue();
@@ -36,6 +41,7 @@ const BannerComponent = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // Updates the banner and queue appearance on movie change
   React.useEffect(() => {
     const bannerElement = document.querySelector(".banner");
     const queueElement = document.querySelector(".queue");
@@ -61,9 +67,10 @@ const BannerComponent = () => {
     return () => {
       bannerElement.removeEventListener("animationend", onAnimationEnd);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movie]);
 
+  // Handles a click on the queue item to change the banner
   const handleBannerChange = (movie) => {
     setMovieQueue((prevMovies) => {
       let updatedMovies = [...prevMovies];

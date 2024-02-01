@@ -2,10 +2,8 @@
 .banner {
     background-size: cover;
     height: 100dvh;
-    /* 100 viewport heights */
     color: whitesmoke;
     width: 100vw;
-    /* 100 viewport widths */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,9 +18,7 @@
     bottom: 0;
     left: 0;
     height: 100dvh;
-    /* Full height overlay */
     background-color: rgba(0, 0, 0, 0.5);
-    /* Semi-transparent black overlay */
 }
 
 /* Content Styling */
