@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1>
+  <a href="https://movie-base-gamma.vercel.app" target="_blank" rel="noopener noreferrer">
+    Movie Base - Ultimate Movie Listing Website
+    <img src="https://github.com/mubashir-angathil/movie-base/blob/development/src/assets/logo-and-brand.png" height="70px" alt="Movie Base Logo"/>
+  </a>
+</h1>
+Welcome to Movie Base, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Base has you covered. This README guide will help you start the project and provide essential information for developers and users.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+* Getting Started
+* Available Scripts
+* Features
+* Technologies Used
+* Project Structure
+  
+### To run Movie Base locally, follow these steps:
+
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/mubashir-angathil/movie-base.git
+```
+2. Navigate to the project directory:
+```
+cd movie-base
+```
+3. Install dependencies:
+```
+npm install
+```
+4. Start the development server:
+```
+npm start
+```
+5. Open http://localhost:3000 in your browser to view the app.
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
+Runs the app in development mode. Open http://localhost:3000 to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The page will reload when you make changes. You may also see any lint errors in the console.
 
 ### `npm run build`
+Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Your app is ready to be deployed! Refer to the deployment section for more information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
+* **Discover Movies**: Explore a diverse range of movies.
+* **Detailed Information**: Get comprehensive details about each movie.
+* **Trailer View**: Enhance your movie exploration by watching trailers directly on YouTube.
+* **Responsive Design**: Enjoy a seamless experience across devices.
+  
+## Technologies Used
+* React
+* Create React App
+* Bootstrap 5
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
+Describe the main directories and files in your project. For example:
 
-### `npm run eject`
+The project is structured as follows:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **App.js**: The main file containing the core logic and structure of the application.
+* **index.js**: DOM creation file, responsible for rendering the React app into the HTML file.
+* **src/components**: Houses reusable React components used throughout the application.
+* **src/pages**: Includes different pages of the application, each representing a distinct view or feature.
+* **src/assets**: Stores images, logos, and other assets.
+* **src/services**: Manages API services, facilitating communication between the front end and backend.
+* **src/utils**: Contains utility functions, hooks, variables, and other helpful tools for the project.
