@@ -13,7 +13,8 @@
 .brand_logo {
     position: relative;
     width: 80px;
-    height: 2.5rem;
+    height: 2rem;
+    transform: scaleX(1.2);
 }
 
 /* Avatar Styling */
@@ -25,7 +26,8 @@
 
 /* Media Query for Responsive Design */
 @media (max-width: 768px) {
-    .netflix_logo {
-        transform: scale(3.5);
+    .brand_logo {
+        height: 1.5rem;
+        transform: scale(1.3);
     }
 }

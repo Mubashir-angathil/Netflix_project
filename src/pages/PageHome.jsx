@@ -19,21 +19,25 @@ function PageHome() {
         title="Popular on Netflix"
       />
       <RowPostersComponent
+        id="action"
         api={() => services.getMovies({ with_genres: 28 })}
         title="Action Movies"
         isSmall
       />
       <RowPostersComponent
+        id="fiction"
         api={() => services.getMovies({ with_genres: 878, page: 2 })}
         title="Science Fiction"
         isSmall
       />
       <RowPostersComponent
+        id="horror"
         api={() => services.getMovies({ with_genres: 27 })}
         title="Horror"
         isSmall
       />
       <RowPostersComponent
+        id="malayalam"
         api={services.getMollyWoodMovies}
         title="Malayalam Movies"
         isSmall

@@ -4,7 +4,7 @@ import { configs } from "../../utils/configs/Configs";
 import "./RowPosters.css";
 import { useNavigate } from "react-router-dom";
 
-const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
+const RowPostersComponent = ({ api = null, title, id, isSmall = false }) => {
   // State to store the fetched posts
   const [posts, setPosts] = React.useState([]);
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const RowPostersComponent = ({ api = null, title, isSmall = false }) => {
 
   return (
     posts?.length > 0 && (
-      <div className="container-fluid">
+      <div className="container-fluid" id={id}>
         <div className="row">
           {/* Display the title of the row */}
           <h3 className="rowTitle">{title}</h3>
