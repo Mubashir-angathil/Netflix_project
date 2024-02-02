@@ -1,8 +1,9 @@
 <h1>
   <a href="https://movie-trends-live.vercel.app" target="_blank" rel="noopener noreferrer">
-    Movie Trends - Ultimate Movie Listing Application
+    Movie Trends  </a>
+    - Ultimate Movie Listing Application
     <img src="https://github.com/mubashir-angathil/movie-trends/blob/master/src/assets/logo-and-brand.png" height="40px" alt="Movie Trends Logo"/>
-  </a>
+ 
 </h1>
 Welcome to Movie Trends, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Trends has you covered. This README guide will help you start the project and provide essential information for developers and users.
 
