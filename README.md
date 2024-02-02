@@ -1,6 +1,6 @@
 <h1>
   <a href="https://movie-base-gamma.vercel.app" target="_blank" rel="noopener noreferrer">
-    Movie Base - Ultimate Movie Listing Website
+    Movie Trends - Ultimate Movie Listing Application
     <img src="https://github.com/mubashir-angathil/movie-trends/blob/master/src/assets/logo-and-brand.png" height="40px" alt="Movie Base Logo"/>
   </a>
 </h1>
