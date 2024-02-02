@@ -1,10 +1,10 @@
 <h1>
-  <a href="https://movie-base-gamma.vercel.app" target="_blank" rel="noopener noreferrer">
+  <a href="https://movie-trends-live.vercel.app" target="_blank" rel="noopener noreferrer">
     Movie Trends - Ultimate Movie Listing Application
-    <img src="https://github.com/mubashir-angathil/movie-trends/blob/master/src/assets/logo-and-brand.png" height="40px" alt="Movie Base Logo"/>
+    <img src="https://github.com/mubashir-angathil/movie-trends/blob/master/src/assets/logo-and-brand.png" height="40px" alt="Movie Trends Logo"/>
   </a>
 </h1>
-Welcome to Movie Base, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Base has you covered. This README guide will help you start the project and provide essential information for developers and users.
+Welcome to Movie Trends, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Trends has you covered. This README guide will help you start the project and provide essential information for developers and users.
 
 Table of Contents
 * Getting Started
@@ -13,15 +13,15 @@ Table of Contents
 * Technologies Used
 * Project Structure
   
-### To run Movie Base locally, follow these steps:
+### To run Movie Trends locally, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
-git clone https://github.com/mubashir-angathil/movie-base.git
+git clone https://github.com/mubashir-angathil/movie-trends.git
 ```
 2. Navigate to the project directory:
 ```
-cd movie-base
+cd movie-trends
 ```
 3. Install dependencies:
 ```
@@ -67,5 +67,5 @@ The project is structured as follows:
 * **src/components**: Houses reusable React components used throughout the application.
 * **src/pages**: Includes different pages of the application, each representing a distinct view or feature.
 * **src/assets**: Stores images, logos, and other assets.
-* **src/services**: Manages API services, facilitating communication between the front end and backend.
+* **src/services**: Manages API services, facilitating communication between the front end and back end.
 * **src/utils**: Contains utility functions, hooks, variables, and other helpful tools for the project.
