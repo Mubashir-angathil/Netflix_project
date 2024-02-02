@@ -44,7 +44,7 @@ const ViewCastAndCrewComponent = () => {
       )})`,
           }}
         >
-          <div className="movie-title-header-content-wrapper ps-5">
+          <div className="movie-title-header-content-wrapper ps-md-5 ps-4">
             {/* Movie poster */}
             <img
               src={`${configs.imageUrl.concat(movie?.poster_path)}`}
@@ -67,7 +67,7 @@ const ViewCastAndCrewComponent = () => {
       </div>
 
       {/* Cast and Crew information */}
-      <div className="gap-2 p-md-5 p-4 row d-flex justify-content-center rounded">
+      <div className="gap-2 p-md-5 p-4 d-flex flex-wrap justify-content-center text-light">
         {/* All Casts */}
         <div className="col">
           <h3>
