@@ -1,6 +1,6 @@
 {
-  "short_name": "Movie Base",
-  "name": "Movie Base",
+  "short_name": "Movie Trends",
+  "name": "Movie Trends",
   "start_url": ".",
   "display": "standalone"
 }
