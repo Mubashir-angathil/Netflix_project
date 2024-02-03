@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { services } from "../../services/api/Services";
 import { configs } from "../../utils/configs/Configs";
 import "./Banner.css";
+import { useNavigate } from "react-router-dom";
+import MediaPlayer from "../media-player/MediaPlayer";
 
 // BannerComponent: Rotating movie banner with dynamic background image
 const BannerComponent = () => {
+  const navigate = useNavigate();
   const [movie, setMovie] = React.useState();
   const [movieQueue, setMovieQueue] = React.useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [trailerId, setTrailerId] = useState(null);
 
   // Shifts the movie queue to create a rotating effect
   const shiftMovieQueue = () => {
@@ -37,7 +42,7 @@ const BannerComponent = () => {
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       shiftMovieQueue();
-    }, 5000);
+    }, 7000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -87,15 +92,28 @@ const BannerComponent = () => {
   };
 
   return movie ? (
-    <div className="banner-container">
+    <div className="banner-container" id="home">
       <div className="banner">
         <div className="content">
           <h1 className="title">
             {movie ? (movie.title ? movie.title : movie.name) : ""}
           </h1>
           <div className="banner_buttons">
-            <button className="button">Play</button>
-            <button className="button">My List</button>
+            <button
+              className="button"
+              onClick={() => {
+                setTrailerId(movie.id);
+                setModalOpen(!modalOpen);
+              }}
+            >
+              Watch Trailer
+            </button>
+            <button
+              className="button"
+              onClick={() => navigate("movie/".concat(movie.id))}
+            >
+              Details
+            </button>
           </div>
           <p className="description mt-2">
             {movie ? movie.overview : "Description"}
@@ -121,9 +139,16 @@ const BannerComponent = () => {
           </div>
         ))}
       </div>
+      {modalOpen && trailerId && (
+        <MediaPlayer
+          movieId={trailerId}
+          open={modalOpen}
+          setOpen={setModalOpen}
+        />
+      )}
     </div>
   ) : (
-    <div style={{minHeight: "100vh"}}></div>
+    <div style={{ minHeight: "100vh" }}></div>
   );
 };
 

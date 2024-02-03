@@ -9,9 +9,10 @@ export const services = {
    * @returns {Promise} A promise that resolves to the response from the API.
    */
   getTrendingMovies: async () => {
-    return await axios.get("/trending/all/week", {
+    return await axios.get("/movie/now_playing", {
       params: {
         language: "IN",
+        include_adult: false,
       },
     });
   },

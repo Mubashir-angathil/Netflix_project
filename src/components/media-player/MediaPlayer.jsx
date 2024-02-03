@@ -31,6 +31,7 @@ const MediaPlayer = ({ movieId, setOpen, open }) => {
               value.site.toUpperCase() === "YOUTUBE"
           );
 
+          console.log(trailerResponse)
           if (trailerResponse?.key) {
             // Set the trailer in the component state and open the modal
             setTrailer(trailerResponse);

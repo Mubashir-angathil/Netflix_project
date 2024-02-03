@@ -54,7 +54,7 @@ const MovieView = () => {
 
   // Function to format providers in india with specific format
   const formatProviders = (results) => {
-    if (results.length > 0) {
+    if (Object.entries(results).length > 0) {
       const providerDetails = [];
       const providersInIndia = Object.entries(results).find(
         (result) => result[0] === "IN"
@@ -68,7 +68,10 @@ const MovieView = () => {
         }
       });
 
-      return [providersInIndia[1].link].concat(providerDetails);
+      const formattedProviderDetails = [providersInIndia[1].link].concat(
+        providerDetails
+      );
+      return formattedProviderDetails;
     }
     return [];
   };
