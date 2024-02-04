@@ -7,14 +7,14 @@
 </h1>
 Welcome to Movie Trends, your go-to platform for discovering and exploring a vast collection of movies. Whether you're a cinephile or just looking for something to watch tonight, Movie Trends has you covered. This README guide will help you start the project and provide essential information for developers and users.
 
-# Table of Contents
-* Getting Started
-* Available Scripts
-* Features
-* Technologies Used
-* Project Structure
-  
-### To run Movie Trends locally, follow these steps:
+  ## Table of Contents
+- [Getting Started](#getting-started-follow-these-steps)
+- [Available Scripts](#available-scripts)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+    
+### Getting Started, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
